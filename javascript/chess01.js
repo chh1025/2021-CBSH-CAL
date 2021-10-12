@@ -1,10 +1,23 @@
-const BOARD_WIDTH = 99;
-const BOARD_HEIGHT = 99;
+const BOARD_WIDTH = 100;
+const BOARD_HEIGHT = 100;
 
 const TILE_SIZE = 50;
-const WHITE_TILE_COLOR = "rgb(255, 228, 196)";
-const BLACK_TILE_COLOR = "rgb(206, 162, 128)";
-const HIGHLIGHT_COLOR = "rgb(75, 175, 75)";
+// const WHITE_TILE_COLOR = "rgb(255, 228, 196)"; //기본
+// const BLACK_TILE_COLOR = "rgb(206, 162, 128)";
+
+// const WHITE_TILE_COLOR = "rgb(62, 63, 84)"; // 우주1
+// const BLACK_TILE_COLOR = "rgb(50, 81, 101)";
+
+// const WHITE_TILE_COLOR = "#0F0D3E"; // 우주2
+// const BLACK_TILE_COLOR = "#271338";
+
+// const WHITE_TILE_COLOR = "#2E3777"; // 우주3
+// const BLACK_TILE_COLOR = "#2E557C";
+
+const WHITE_TILE_COLOR = "#2F567D"; // 우주4
+const BLACK_TILE_COLOR = "#1D2B45";
+// // const BLACK_TILE_COLOR = "#1D2946";
+const HIGHLIGHT_COLOR = "rgb(175, 75, 75)";
 const WHITE = 0;
 const BLACK = 1;
 
@@ -16,9 +29,13 @@ const INVALID = 0;
 const VALID = 1;
 const VALID_CAPTURE = 2;
 
+// const piecesCharacters = {
+//     0: '♕',
+//     1: '♚'
+// };
 const piecesCharacters = {
-    0: '♕',
-    1: '♔'
+    0: '🛸',
+    1: '🌍'
 };
 
 let chessCanvas;
@@ -75,8 +92,8 @@ function onClick(event) {
         
         if (checkValidCapture(x, y) === true) {
             if (board.tiles[y][x].pieceType === KING) {
-                alert('finish with '+turnCnt+' turn(s)')
-
+                alert('finish with '+turnCnt+' turn(s)');
+                turnCnt = 1;
                 startGame();
                 return;
             }
@@ -295,7 +312,7 @@ function drawPieces() {
                 chessCtx.fillStyle = "#000000";
             }
             
-            chessCtx.font = "38px Arial";
+            chessCtx.font = "30px Arial";
             let pieceType = board.tiles[i][j].pieceType;
             chessCtx.fillText(piecesCharacters[pieceType], TILE_SIZE*(j+1/8), TILE_SIZE*(i+4/5));
         }
@@ -420,7 +437,8 @@ class Board {
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
-            new Tile(KING, BLACK)//99
+            new Tile(EMPTY, EMPTY),
+            new Tile(KING, BLACK)//100
             
 
         ]);
@@ -533,13 +551,14 @@ class Board {
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
-            new Tile(EMPTY, EMPTY)//99
+            new Tile(EMPTY, EMPTY),
+            new Tile(EMPTY, EMPTY)//100
 
 
 
         ]);
 
-        for (let i = 0; i < 95; i++) {
+        for (let i = 0; i < 96; i++) {
             this.tiles.push([
                 new Tile(EMPTY, EMPTY),
                 new Tile(EMPTY, EMPTY),
@@ -648,7 +667,8 @@ class Board {
                 new Tile(EMPTY, EMPTY),
                 new Tile(EMPTY, EMPTY),
                 new Tile(EMPTY, EMPTY),
-                new Tile(EMPTY, EMPTY)//99
+                new Tile(EMPTY, EMPTY),
+                new Tile(EMPTY, EMPTY)//100
             ]);
         }
 
@@ -760,7 +780,8 @@ class Board {
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
-            new Tile(EMPTY, EMPTY)//99
+            new Tile(EMPTY, EMPTY),
+            new Tile(EMPTY, EMPTY)//100
         ]);
 
         this.tiles.push([
@@ -871,7 +892,8 @@ class Board {
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
             new Tile(EMPTY, EMPTY),
-            new Tile(EMPTY, EMPTY)//99
+            new Tile(EMPTY, EMPTY),
+            new Tile(EMPTY, EMPTY)//100
         ]);
 
         this.validMoves = [];
@@ -984,7 +1006,8 @@ class Board {
                 INVALID,
                 INVALID,
                 INVALID,
-                INVALID//99
+                INVALID,
+                INVALID//100
                 
             ]);
         }
