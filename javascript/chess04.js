@@ -2,21 +2,9 @@ const BOARD_WIDTH = 100;
 const BOARD_HEIGHT = 100;
 
 const TILE_SIZE = 50;
-// const WHITE_TILE_COLOR = "rgb(255, 228, 196)"; //기본
-// const BLACK_TILE_COLOR = "rgb(206, 162, 128)";
 
-// const WHITE_TILE_COLOR = "rgb(62, 63, 84)"; // ?���?1
-// const BLACK_TILE_COLOR = "rgb(50, 81, 101)";
-
-// const WHITE_TILE_COLOR = "#0F0D3E"; // ?���?2
-// const BLACK_TILE_COLOR = "#271338";
-
-// const WHITE_TILE_COLOR = "#2E3777"; // ?���?3
-// const BLACK_TILE_COLOR = "#2E557C";
-
-const WHITE_TILE_COLOR = "#2F567D"; // ?���?4
+const WHITE_TILE_COLOR = "#2F567D"; 
 const BLACK_TILE_COLOR = "#1D2B45";
-// // const BLACK_TILE_COLOR = "#1D2946";
 const HIGHLIGHT_COLOR = "rgb(175, 75, 75)";
 const WHITE = 0;
 const BLACK = 1;
@@ -30,8 +18,8 @@ const VALID = 1;
 const VALID_CAPTURE = 2;
 
 // const piecesCharacters = {
-//     0: '?��',
-//     1: '?��'
+//     0: '♕',
+//     1: '♚'
 // };
 const piecesCharacters = {
     0: '🛸',
@@ -328,6 +316,7 @@ function getOppositeTeam(team) {
 class Board {
     constructor() {
         this.tiles = [];
+
         for (let i = 0; i < 100; i++) {
             this.tiles.push([
                 new Tile(EMPTY, EMPTY),
@@ -442,9 +431,9 @@ class Board {
             ]);
         }
         
-        this.tiles[0][0] = new Tile(QUEEN, WHITE)
-        this.tiles[99][0] = new Tile(KING, BLACK)
-        this.tiles[0][99] = new Tile(KING, BLACK)
+        this.tiles[53][96] = new Tile(QUEEN, WHITE)
+        this.tiles[66][3] = new Tile(KING, BLACK)
+        this.tiles[39][21] = new Tile(KING, BLACK)
 
         this.validMoves = [];
         for (let i = 0; i < BOARD_HEIGHT; i++) {
